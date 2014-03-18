@@ -1,6 +1,11 @@
-package com.example.billsandroid;
+package com.example.adapter;
 
 import java.util.List;
+
+import com.example.billsandroid.R;
+import com.example.billsandroid.R.id;
+import com.example.billsandroid.R.layout;
+import com.example.model.Music;
 
 import android.content.Context;
 import android.view.LayoutInflater;

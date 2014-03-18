@@ -1,5 +1,9 @@
 package com.example.billsandroid;
 
+import com.example.fragment.ChatFragment;
+import com.example.fragment.Fragment1;
+import com.example.fragment.Fragment2;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
@@ -26,7 +30,4 @@ public class MainActivity extends Activity{
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
-
-
 }

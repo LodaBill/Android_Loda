@@ -1,4 +1,4 @@
-package com.example.billsandroid;
+package com.example.model;
 
 
 public class Music {
