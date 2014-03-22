@@ -58,8 +58,9 @@ public final class R {
         public static final int activity_main=0x7f030002;
         public static final int chat_input_layout=0x7f030003;
         public static final int chat_list_view_layout=0x7f030004;
-        public static final int chatfragment_layout=0x7f030005;
-        public static final int listview_layout=0x7f030006;
+        public static final int chat_list_view_layout2=0x7f030005;
+        public static final int chatfragment_layout=0x7f030006;
+        public static final int listview_layout=0x7f030007;
     }
     public static final class menu {
         public static final int chat_detail=0x7f070000;

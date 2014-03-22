@@ -5,6 +5,8 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -103,6 +105,7 @@ public class LoginActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.action_back:
 			onBackPressed();
+			Intent intent = new Intent(android.content.Intent.ACTION_ANSWER,Uri.parse("asf"));
 			break;
 		case android.R.id.home:
 			onBackPressed();

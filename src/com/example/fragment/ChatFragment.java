@@ -12,8 +12,11 @@ import com.example.billsandroid.R.layout;
 import com.example.model.Music;
 
 import android.app.Fragment;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,11 +29,8 @@ private MyAdapter myAdapter;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
-		List<Music> musicList = new ArrayList<Music>();
-		for(int i=0;i<100;i++){
-			musicList.add(new Music(Integer.toString(i), Integer.toString(i), R.drawable.ic_launcher));
-		}
-		myAdapter = new MyAdapter(getActivity().getApplicationContext(), R.layout.listview_layout, musicList);
+		//get data from db
+		myAdapter = new MyAdapter(getActivity().getApplicationContext(), R.layout.listview_layout, getList(getActivity().getContentResolver()));
 		super.onCreate(savedInstanceState);
 	}
 	
@@ -53,6 +53,19 @@ private MyAdapter myAdapter;
 		});
 		
 		return view;
+	}
+	
+	private ArrayList<Music> getList(ContentResolver cr){
+		ArrayList<Music> list = new ArrayList<Music>();
+		    Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,null, null, null, null);
+		    if (cur.getCount() > 0) {
+			    while (cur.moveToNext()) {
+			        String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
+			        String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+			        list.add(new Music(name, name, R.drawable.ic_launcher));
+			    }
+		    }
+		return list;
 	}
 
 }
